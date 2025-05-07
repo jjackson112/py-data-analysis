@@ -4,8 +4,10 @@ snack_scores = [80,45,34]
 
 slice_labels = ["Chocolate", "Cheese", "Pickles"]
 
-plt.pie(snack_scores, labels=slice_labels)
+colors = ["#ffff00", "#dcdcdc", "#808080"]
 
-plt.title("Snack Scores")
+plt.pie(snack_scores, labels=slice_labels, colors=colors)
+
+plt.title("Snack Scores", fontsize=22)
 
 plt.savefig("snack_scores.png")
