@@ -42,4 +42,8 @@ plt.xlabel("Fare")
 plt.ylabel("Passengers")
 
 plt.title("Summarizing the Titanic Survival Data")
+# Add a legend - color guide
+plt.gca().legend(("Did Not Survive", "Survived"))
+
 plt.savefig("determining_probability.png")
+
