@@ -1,5 +1,6 @@
 import csv
 import numpy as np
+import matplotlib.pyplot as plt
 
 with open("tips.csv", "r") as file:
   data = csv.reader(file,delimiter=",")
@@ -14,5 +15,13 @@ tip_percentages = tips/bills
 
 print(f"The average bill amount is ${round(np.mean(bills), 2)}")
 print(f"The median bill amount is ${round(np.median(bills), 2)}")
-print(f"The smallest bill is ${round(np.min(bills), 2) }")
+print(f"The smallest bill is ${round(np.min(bills), 2)}")
 print(f"The largest bill is ${round(np.max(bills), 2)}")
+
+# create scatter plot
+plt.scatter(size, tip_percentages, color="#e9967a")
+
+plt.xlabel("Dinner Party Size")
+plt.ylabel("Tip Percentage")
+plt.title("First Scatter Plot")
+plt.savefig("first_scatter_plot.png")
