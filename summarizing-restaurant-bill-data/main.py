@@ -9,5 +9,13 @@ with open("tips.csv", "r") as file:
 
 size = data_numpy[:,6]
 tips = np.array(data_numpy[:,1], dtype=float)
-bills = np.array(data_numpy[:,0], dtype=float)
+bills = np.array(data_numpy[:,0], dtype=float)  
 tip_percentages = tips/bills
+
+# print(np.mean(bills))
+
+# Round down the decimal points with round()
+print(f"The average bill amount is {round(np.mean(bills), 2)}.")
+print(f"The median bill amount is {round(np.median(bills), 2)}")
+print(f"The minimum bill amount is {round(np.min(bills, 2))}")
+print(f"The maximum bill amount is {round(np.max(bills, 2))}")
