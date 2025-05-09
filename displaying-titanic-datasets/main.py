@@ -19,4 +19,4 @@ plt.xlabel("Passenger Age")
 plt.ylabel("Passenger Fare")
 
 plt.title("Titanic Survivors")
-plt.savefig("titanic.png")
+plt.savefig("titanic_survivors.png")
