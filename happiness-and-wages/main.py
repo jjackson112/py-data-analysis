@@ -1,4 +1,5 @@
 import requests
+import pandas as pd
 
 # Standardizes currency to USD values so that we can better compare results
 def format_currency(dataset):
@@ -19,3 +20,18 @@ def format_currency(dataset):
 
 
 # ADD CODE: Pandas dataframes
+wage = pd.read_csv("wage.csv", delimiter=",")
+happiness = pd.read.csv("happiness.csv", delimiter=",")
+
+print(wage)
+print(happiness)
+
+# pass wage dataframe as an argument for format_currency in the wage_usd variable
+wage_usd= format_currency(wage)
+
+print(wage_usd)
+
+# merge the dataframes
+wage_and_happiness = wage.merge(happiness)
+
+print(wage_and_happiness)
