@@ -1,5 +1,7 @@
-import requests
 import pandas as pd
+import requests
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 
 # Standardizes currency to USD values so that we can better compare results
@@ -47,7 +49,19 @@ print("Countries with the lowest average happiness:",
       happiness_average_per_country.nsmallest(10))
 
 # With f-strings:
-print(f"Countries with the highest average wages:{wage_average_per_country.nlargest(10)}")
-print(f"Countries with the highest average happiness:{happiness_average_per_country.nlargest(10)}")
-print(f"Countries with the lowest average wages:{wage_average_per_country.nsmallest(10)}")
-print(f"Countries with the lowest average happiness:{happiness_average_per_country.nsmallest(10)}")
+#print(f"Countries with the highest average wages:{wage_average_per_country.nlargest(10)}")
+#print(f"Countries with the highest average happiness:{happiness_average_per_country.nlargest(10)}")
+#print(f"Countries with the lowest average wages:{wage_average_per_country.nsmallest(10)}")
+#print(f"Countries with the lowest average happiness:{happiness_average_per_country.nsmallest(10)}")
+
+# bubble plot 
+# hue and size arguments based on happiness score 
+fig = sns.scatterplot(x="Value", y="Happiness score", hue="Happiness score", size=(20, 180), data=wage_and_happiness)
+
+plt.title=("Annual Salary and Happiness")
+plt.xlabel="Annual Salary of Full-Time Workers"
+plt.ylabel="Citizen Happiness Score"
+
+fig.set_facecolor("#E5E5E5")
+
+plt.savefig("salary_and_happiness.png")
