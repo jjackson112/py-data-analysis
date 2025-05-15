@@ -11,9 +11,17 @@ def get_soup(url):
 def get_categories(url):
   soup = get_soup(url)
   data = {}
+  categories = soup.find_all("dl")
   #ADD CODE - select and extract category animals here
-
+  for category in categories:
+    category_name = category.find("dt").get_text()
+    category_animals = category.find_all("a")
+  # add a key-value pair to specify the data extracted from the data dictionary
+  # data[category_name] equals the dictionary value
+    data[category_name] = category_animals
   # Return the data here
   return data
 
 category_data = get_categories("https://skillcrush.github.io/web-scraping-endangered-species/")
+
+print(category_data)
