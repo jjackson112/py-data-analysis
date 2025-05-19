@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 
 
 def get_soup(url):
@@ -39,10 +40,23 @@ category_data = get_categories("https://skillcrush.github.io/web-scraping-endang
 
 # print(animal_class)
 
+collected_data = []
+
 for category in category_data:
   for animal in category_data[category]:
     animal_href = animal["href"]
-    # print(animal_href)
+    animal_name = animal.contents[0] # grab text inside each link
     animal_class = get_animal(animal_href)
-    print(animal_class)
-    print()
+    # print(animal_name) 
+
+    # remove unwanted outputs - 3 key-value pairs
+    if len(animal_name) > 3:
+      collected_data.append({
+        "Category": category,
+        "Animal Name": animal_name,
+        "Animal Class": animal_class
+      })
+    print(collected_data)
+
+with open("animal_data.json", "w") as jsonfile:
+  json.dump(collected_data, jsonfile)
