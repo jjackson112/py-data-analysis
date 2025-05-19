@@ -33,6 +33,17 @@ def get_animal(url):
 category_data = get_categories("https://skillcrush.github.io/web-scraping-endangered-species/")
 
 
-animal_class = get_animal("https://en.wikipedia.org/wiki/Honey_badger")
+# animal_class = get_animal("https://en.wikipedia.org/wiki/Honey_badger")
 
-print(animal_class)
+# print(animal_class)
+
+# loop through each category
+# loop through each animal in category_data using the category key
+for category in category_data:
+  for animal in category_data[category]:
+    animal_href = animal["href"]
+# see relative URL of animal
+# print(animal_href)
+# store data from web scraper - pull class from each animal
+    animal_class = get_animal(animal_href)
+  print(animal_class)
